@@ -1,0 +1,47 @@
+#!/usr/bin/sh
+
+#Autostart
+
+#Keybind
+sxhkd &
+
+#Polybar
+$HOME/.config/polybar/launch.sh &
+
+#Compositor
+picom --experimental-backends &
+
+#Wallpaper
+feh --bg-scale $HOME/Pictures/Wallpapers/'18 - 3EFBicg.png' &
+
+#Input Method
+ibus-daemon -drxR
+
+bspc monitor -d 一 二 三 四 五 六 七 八 九
+
+#bspc config top_padding          	40
+#bspc config bottom_padding       	0
+#bspc config left_padding          	0
+#bspc config right_padding    		0
+bspc config focus_follows_pointer	true
+
+bspc config pointer_action1		move
+bspc config pointer_action2		resize_side
+bspc config pointer_action2		resize_corner
+
+bspc config focused_border_color    "#1e1e2e"
+bspc config normal_border_color     "#1e1e2e"
+bspc config active_border_color     "#1e1e2e"
+
+bspc config border_width           	6
+bspc config window_gap             	10
+
+bspc config split_ratio            	0.50
+bspc config borderless_monocle   	true
+bspc config gapless_monocle      	true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Discord desktop='^1'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
